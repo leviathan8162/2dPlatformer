@@ -1,11 +1,8 @@
-export const TILE = { EMPTY:0, GROUND:1, SPIKE:2, PLAYER:3 };
-
-export function drawGrid(ctx, grid) {
-  const size = 32;
-  for (let y=0; y<grid.length; y++) {
-    for (let x=0; x<grid[0].length; x++) {
-      ctx.fillStyle = ["#000","#654321","#aa0000","#00aaff"][grid[y][x]];
-      ctx.fillRect(x*size, y*size, size, size);
-    }
-  }
+export function createDefaultLevel(w=16,h=12){
+return {w,h,tiles:new Array(w*h).fill(0),player:{x:2,y:2}};
 }
+export function tileAt(level,x,y){
+if(x<0||y<0||x>=level.w||y>=level.h) return 0;
+return level.tiles[y*level.w + x] || 0;
+}
+export function loadJSON(url){return fetch(url).then(r=>r.json());}
