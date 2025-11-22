@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Platformer & Editor</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2D Platformer + Level Editor</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="menu">
-    <h1>Platformer</h1>
-    <button onclick="window.location='game.html'">Play Game</button>
-    <button onclick="window.location='editor.html'">Level Editor</button>
-  </div>
+<div id="app"></div>
+<script type="module">
+import { Menu } from './js/menu.js';
+
+
+const app = document.getElementById('app');
+const menu = new Menu(app);
+menu.init();
+</script>
 </body>
 </html>
